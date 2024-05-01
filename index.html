@@ -90,11 +90,11 @@
     <input type="text" id="punkzahl" placeholder="wert hinzufügen" maxlength="3"><br><br>
     <input type="text" id="punkzahlab" placeholder="wert abziehen"><br><br>
     <button id="belohnung">belohnung</button>
-    <input type="text" id="angebote" placeholder="angebote" value="keine englisch hausaufgaben 1 mal" readonly><button id="kaufen" onclick="kaufen('20', 'keine englisch hausaufgaben 1 mal', '202020')">-20</button>
-    <input type="text" id="angebote" placeholder="angebote" value="keine hausaufgaben 1 mal" readonly><button id="kaufen" onclick="kaufen('50', 'keine hausaufgaben 1 mal', '505050')">-50</button>
-    <input type="text" id="angebote" placeholder="angebote" value="für mich antworten" readonly><button id="kaufen" onclick="kaufen('70', 'für mich antworten', '707070')">-70</button>
-    <input type="text" id="angebote" placeholder="angebote" value="keinen bildschirm teilen 1 mal" readonly><button id="kaufen" onclick="kaufen('80', 'keinen bildschirm teilen 1 mal', '808080')">-80</button>
-    <input type="text" id="angebote" placeholder="angebote" value="nach-hilfe" readonly><button id="kaufen" onclick="kaufen('100', 'nach-hilfe', '100')">-100</button>
+    <input type="text" id="angebote" placeholder="angebote" value="keine englisch hausaufgaben 1 mal" readonly><button id="kaufen" onclick="kaufen('50', 'keine englisch hausaufgaben 1 mal', '202020')">-50</button>
+    <input type="text" id="angebote" placeholder="angebote" value="keine hausaufgaben 1 mal" readonly><button id="kaufen" onclick="kaufen('80', 'keine hausaufgaben 1 mal', '505050')">-80</button>
+    <input type="text" id="angebote" placeholder="angebote" value="für mich antworten" readonly><button id="kaufen" onclick="kaufen('100', 'für mich antworten', '707070')">-100</button>
+    <input type="text" id="angebote" placeholder="angebote" value="keinen bildschirm teilen 1 mal" readonly><button id="kaufen" onclick="kaufen('150', 'keinen bildschirm teilen 1 mal', '808080')">-150</button>
+    <input type="text" id="angebote" placeholder="angebote" value="nach-hilfe" readonly><button id="kaufen" onclick="kaufen('200', 'nach-hilfe', '200200')">-200</button>
   </div>
   <script>
     let password = document.getElementById('passwort');
@@ -137,19 +137,19 @@
         if (parseInt(wert) < 0) {
           punkte.style.color = "red";
         }
-        if (parseInt(wert) > 20 && parseInt(wert) < 50){
+        if (parseInt(wert) > 50 && parseInt(wert) < 80){
           belohnung.style.display = "block";
           belohnung.innerText = "keibe englisch hausaufgaben 1 mal";
-        }else if (parseInt(wert) > 50 && parseInt(wert) < 70){
+        }else if (parseInt(wert) > 80 && parseInt(wert) < 100){
           belohnung.style.display = "block";
           belohnung.innerText = "keine hausaufgaben 1 mal";
-        }else if (parseInt(wert) > 70 && parseInt(wert) < 80){
+        }else if (parseInt(wert) > 100 && parseInt(wert) < 150){
           belohnung.style.display = "block";
           belohnung.innerText = "für mich antworten";
-        }else if (parseInt(wert) > 80 && parseInt(wert) < 100) {
+        }else if (parseInt(wert) > 150 && parseInt(wert) < 200) {
           belohnung.style.display = "block";
           belohnung.innerText = "kein bildscirm teilen 1 mal";
-        }else if (parseInt(wert) > 100) {
+        }else if (parseInt(wert) > 200) {
           belohnung.style.display = "block";
           belohnung.innerText = "nach-hilfe 1 mal";
         }else {
@@ -172,19 +172,19 @@
       if (parseInt(punkte.innerText) < 0) {
         punkte.style.color = "red";
       }
-      if (parseInt(punkte.innerText) > 20 && parseInt(punkte.innerText) < 50){
+      if (parseInt(punkte.innerText) > 50 && parseInt(punkte.innerText) < 80){
         belohnung.style.display = "block";
         belohnung.innerText = "keibe englisch hausaufgaben 1 mal";
-      }else if (parseInt(punkte.innerText) > 50 && parseInt(punkte.innerText) < 70){
+      }else if (parseInt(punkte.innerText) > 80 && parseInt(punkte.innerText) < 100){
         belohnung.style.display = "block";
         belohnung.innerText = "keine hausaufgaben 1 mal";
-      }else if (parseInt(punkte.innerText) > 70 && parseInt(punkte.innerText) < 80){
+      }else if (parseInt(punkte.innerText) > 100 && parseInt(punkte.innerText) < 150){
         belohnung.style.display = "block";
         belohnung.innerText = "für mich antworten";
-      }else if (parseInt(punkte.innerText) > 80 && parseInt(punkte.innerText) < 100) {
+      }else if (parseInt(punkte.innerText) > 150 && parseInt(punkte.innerText) < 200) {
         belohnung.style.display = "block";
         belohnung.innerText = "kein bildscirm teilen 1 mal";
-      }else if (parseInt(punkte.innerText) > 100) {
+      }else if (parseInt(punkte.innerText) > 200) {
         belohnung.style.display = "block";
         belohnung.innerText = "nach-hilfe 1 mal";
       }else {
@@ -217,19 +217,19 @@
       if (parseInt(punkte.innerText) < 0) {
         punkte.style.color = "red";
       }
-      if (parseInt(punkte.innerText) > 20 && parseInt(punkte.innerText) < 50){
+      if (parseInt(punkte.innerText) > 50 && parseInt(punkte.innerText) < 80){
         belohnung.style.display = "block";
         belohnung.innerText = "keibe englisch hausaufgaben 1 mal";
-      }else if (parseInt(punkte.innerText) > 50 && parseInt(punkte.innerText) < 70){
+      }else if (parseInt(punkte.innerText) > 80 && parseInt(punkte.innerText) < 100){
         belohnung.style.display = "block";
         belohnung.innerText = "keine hausaufgaben 1 mal";
-      }else if (parseInt(punkte.innerText) > 70 && parseInt(punkte.innerText) < 80){
+      }else if (parseInt(punkte.innerText) > 100 && parseInt(punkte.innerText) < 150){
         belohnung.style.display = "block";
         belohnung.innerText = "für mich antworten";
-      }else if (parseInt(punkte.innerText) > 80 && parseInt(punkte.innerText) < 100) {
+      }else if (parseInt(punkte.innerText) > 150 && parseInt(punkte.innerText) < 200) {
         belohnung.style.display = "block";
         belohnung.innerText = "kein bildscirm teilen 1 mal";
-      }else if (parseInt(punkte.innerText) > 100) {
+      }else if (parseInt(punkte.innerText) > 200) {
         belohnung.style.display = "block";
         belohnung.innerText = "nach-hilfe 1 mal";
       }else {
@@ -251,7 +251,7 @@
     password.addEventListener('submit', (event) => {
       event.preventDefault();
       let passwordvalue = password.value;
-      if (passwordvalue == "12345654321") {
+      if (passwordvalue == "picsnapp") {
         punkzahl.style.display = "block";
         punkzahlab.style.display = "block";
         password.style.display = "none";
@@ -510,6 +510,24 @@
         setTimeout(function() {
           password.style.display = "block";
         }, 30000);
+      }else if (passwordvalue == "mathematik") {
+        punkte.innerText = parseInt(punkte.innerText) + 5;
+        belohnung.style.display = "block";
+        belohnung.innerText = "yay, mathe. hier hast du 5 punkte";
+        localStorage.setItem("punktewert", punkte.innerText);
+        password.style.display = "none";
+        setTimeout(function() {
+          password.style.display = "block";
+        }, 30000);
+      }else if (passwordvalue == "esheißtmaxi") {
+        punkte.innerText = parseInt(punkte.innerText) + 15;
+        belohnung.style.display = "block";
+        belohnung.innerText = "ja genau! hier hast du 15 punkte";
+        localStorage.setItem("punktewert", punkte.innerText);
+        password.style.display = "none";
+        setTimeout(function() {
+          password.style.display = "block";
+        }, 30000);
       }else if (passwordvalue == "bildschirm") {
         punkte.innerText = parseInt(punkte.innerText) + 1;
         belohnung.style.display = "block";
@@ -537,28 +555,19 @@
         setTimeout(function() {
           password.style.display = "block";
         }, 30000);
-      }else if (passwordvalue == "mathematik") {
-        punkte.innerText = parseInt(punkte.innerText) + 5;
-        belohnung.style.display = "block";
-        belohnung.innerText = "yay, mathe. hier hast du 5 punkte";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "esheißtmaxi") {
-        punkte.innerText = parseInt(punkte.innerText) + 15;
-        belohnung.style.display = "block";
-        belohnung.innerText = "ja genau! hier hast du 15 punkte";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
       }else if (passwordvalue == "langehaare") {
         punkte.innerText = parseInt(punkte.innerText) + 1;
         belohnung.style.display = "block";
         belohnung.innerText = "danke, wie findest du meine webseiten?";
+        localStorage.setItem("punktewert", punkte.innerText);
+        password.style.display = "none";
+        setTimeout(function() {
+          password.style.display = "block";
+        }, 30000);
+      }else if (passwordvalue == "langsam") {
+        punkte.innerText = parseInt(punkte.innerText) + 2;
+        belohnung.style.display = "block";
+        belohnung.innerText = "was ist langsam?";
         localStorage.setItem("punktewert", punkte.innerText);
         password.style.display = "none";
         setTimeout(function() {
