@@ -537,6 +537,24 @@
         setTimeout(function() {
           password.style.display = "block";
         }, 30000);
+      }else if (passwordvalue == "mathematik") {
+        punkte.innerText = parseInt(punkte.innerText) + 5;
+        belohnung.style.display = "block";
+        belohnung.innerText = "yay, mathe. hier hast du 5 punkte";
+        localStorage.setItem("punktewert", punkte.innerText);
+        password.style.display = "none";
+        setTimeout(function() {
+          password.style.display = "block";
+        }, 30000);
+      }else if (passwordvalue == "esheißtmaxi") {
+        punkte.innerText = parseInt(punkte.innerText) + 15;
+        belohnung.style.display = "block";
+        belohnung.innerText = "ja genau! hier hast du 15 punkte";
+        localStorage.setItem("punktewert", punkte.innerText);
+        password.style.display = "none";
+        setTimeout(function() {
+          password.style.display = "block";
+        }, 30000);
       }else if (passwordvalue == "langehaare") {
         punkte.innerText = parseInt(punkte.innerText) + 1;
         belohnung.style.display = "block";
