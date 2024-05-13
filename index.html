@@ -274,7 +274,7 @@
       }
     });
 
-    function dealf(points, text, code) {
+    function dealf(points, text) {
       if (isNaN(value.innerText)) {
         value.innerText = "0";
         localStorage.setItem("punktewert", value.innerText);
@@ -286,7 +286,7 @@
         belohnung.innerText = text + ". Code:" + points + points + points;
         localStorage.setItem("punktewert", value.innerText);
       } else {
-        value.innerText = "0";
+        value.innerText = value.innerText;
         localStorage.setItem("punktewert", value.innerText);
       }
       if (isNaN(value.innerText)) {
