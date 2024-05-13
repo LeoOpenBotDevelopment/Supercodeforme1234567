@@ -4,591 +4,408 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>shul punkte</title>
+  <title>punkte</title>
   <style>
-    body {
-      background-color: #f0f0f0;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+    body{
+      background-color: #d7d7d7;
+      color: #a6a6a6;
     }
-    .container{
-      max-width: 800px;
-      margin: 10%;
-      padding: 20px;
-      background-color: #ccc;
-      border: none;
-      border-radius: 15px;
+    #points{
+      background-color: #535353;
     }
-    button{
-      background-color: #f0f0f0;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 20px;
-      cursor: pointer;
-      color: black;
-      font-size: 20px;
-      font-weight: bold;
-      
-    }
-    #belohnung{
-      font-size: 20px;
-      font-weight: bold;
-      /*green with (low opasity)*/
-      color: rgba(0, 255, 0, 0.7);
-      background-color: rgba(0, 255, 0, 0.2);
-      border: 2px solid rgba(0, 255, 0, 0.7);
-      width: 99%;
-    }
-    /*input type text*/
-    input[type="text"] {
-      width: 93%;
-      height: 40px;
-      font-size: 20px;
-    }
-    #angebote{
-      width: 70%;
-    }
-    #kaufen{
-      width: 24%;
-      height: 50px;
-      font-size: 20px;
-    }
-    #angebote{
-      font-size: 15px;
-    }
-    #punkzahl{
-      display: none;
-    }
-    #punkzahlab{
-      display: none;
-    }
-    .justify{
+    #pricepluscart{
       display: flex;
       justify-content: space-between;
     }
+    #points{
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      border: none;
+      border-radius: 50px;
+      text-align: center;
+      max-height: 80px;
+      align-items: center;
+    }
+    #value{
+      text-align: center;
+      border: none;
+      position: realtive;
+      font-weight: bold;
+      font-size: 40px;
+      padding: 5px 50px;
+    }
+    #okayornotokay{
+      max-height: 80px;
+    }
+    #pointssign{
+      max-height: 45px;
+      margin-left: 10px;
+    }
+    #cartimage{
+      max-height: 80px;
+    }
+    #sign{
+      height: 30px;
+      margin-bottom: -5px;
+    }
+    #sign2{
+      height: 30px;
+      margin-bottom: -5px;
+      /* give dark filter *display */
+      filter: invert(100%);
+    }
+    #deal1{
+      width: 100%;
+      height: 80px;
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      color: #a6a6a6;
+      margin-top: 10px;
+      background-color: #535353;
+      border: 5px solid #535353;
+      border-radius: 20px;
+    }
+    #deal2{
+      width: 100%;
+      height: 80px;
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      color: #a6a6a6;
+      margin-top: 10px;
+      background-color: #6a6a6a;
+      border: 5px solid #6a6a6a;
+      border-radius: 20px;
+    }
+    #alldeals{
+      width: 100%;
+      height: 80px;
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      color: #535353;
+      margin-top: 10px;
+      background-color: #a6a6a6;
+      border: 5px solid #a6a6a6;
+      border-radius: 20px;
+    }
+    #belohnung{
+      font-size: 30px;
+      font-weight: bold;
+      border-radius: 20px;
+      /*green with (low opasity)*/
+      color: rgba(0, 200, 0, 0.9);
+      background-color: rgba(0, 200, 0, 0.2);
+      border: 5px solid rgba(0, 200, 0, 0.7);
+      width: 99%;
+      height: 80px;
+    }
     input[type="password"] {
-      width: 93%;
-      height: 40px;
-      font-size: 20px;
+      width: 95%;
+      height: 60px;
+      font-size: 30px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      
+    }
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg); /* Startposition der Rotation */
+      }
+      to {
+        transform: rotate(360deg); /* Endposition der Rotation */
+      }
+    }
+    @keyframes shake {
+      0% { transform: translateX(-5px); } /* Von links nach rechts bewegen */
+      25% { transform: translateX(5px); } /* Von rechts nach links bewegen */
+      50% { transform: translateX(-5px); } /* Von links nach rechts bewegen */
+      75% { transform: translateX(5px); } /* Von rechts nach links bewegen */
+      100% { transform: translateX(0); } /* Zurück zur Ausgangsposition */
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; } /* Anfangs Opazität auf 0 setzen */
+      100% { opacity: 1; } /* End-Opazität auf 100 setzen */
+    }
+    @keyframes fadeout {
+      0% { opacity: 1; } /* Anfangs Opazität auf 0 setzen */
+      100% { opacity: 0; } /* End-Opazität auf 100 setzen */
+    }
+    .deals{
+      display: block;
     }
   </style>
 </head>
 
 <body>
-  <button>Punkte:</button><button id="punkte">0</button>
-  <div class="container">
-    <h3>verdiene punkte, und schreibe (den erfinder) was du über seine webseiten findest. und wenn du dir etwas kaufst gib (den erfinder) den kaufs code. (schreibe ihn den text in grühn wenn du was kaufst mit punkten) (dies ist kein echtes geld)</h3>
-    <div class="justify">
-      <button id="button1" onclick="openNewTab('https://leoopenbotdevelopment.github.io/Online-Shop-with-Shopping-cart/', '10', 'button1')"> + 10</button>
-      <button id="button2" onclick="openNewTab('https://leoopenbotdevelopment.github.io/My-Website/', '12', 'button2')"> + 12</button>
-      <button id="button3" onclick="openNewTab('https://leoopenbotdevelopment.github.io/Ulrikes-Mathe-Webseite/', '15', 'button3')"> + 5</button>
-      <button id="button4" onclick="openNewTab('https://leoopenbotdevelopment.github.io/Ulrikes-Mathe-Webseite/', '5', 'button4')"> + 5</button>
-      <button id="button5" onclick="openNewTab('https://leoopenbotdevelopment.github.io/LeOBDraw/', '10', 'button5')"> + 10</button>
+  <div id="pricepluscart">
+    <div id="points">
+      <img src="Image1.heic" id="okayornotokay">
+      <img src="point-Sing-Image.heic" id="pointssign">
+      <h2 id="value">0</h2>
     </div>
-    <input type="password" id="passwort" placeholder="passwort eingeben"><br><br>
-    <input type="text" id="punkzahl" placeholder="wert hinzufügen" maxlength="3"><br><br>
-    <input type="text" id="punkzahlab" placeholder="wert abziehen"><br><br>
-    <button id="belohnung">belohnung</button>
-    <input type="text" id="angebote" placeholder="angebote" value="keine englisch hausaufgaben 1 mal" readonly><button id="kaufen" onclick="kaufen('50', 'keine englisch hausaufgaben 1 mal', '505050')">-50</button>
-    <input type="text" id="angebote" placeholder="angebote" value="keine hausaufgaben 1 mal" readonly><button id="kaufen" onclick="kaufen('80', 'keine hausaufgaben 1 mal', '808080')">-80</button>
-    <input type="text" id="angebote" placeholder="angebote" value="für mich antworten" readonly><button id="kaufen" onclick="kaufen('100', 'für mich antworten', '100100')">-100</button>
-    <input type="text" id="angebote" placeholder="angebote" value="keinen bildschirm teilen 1 mal" readonly><button id="kaufen" onclick="kaufen('150', 'keinen bildschirm teilen 1 mal', '150150')">-150</button>
-    <input type="text" id="angebote" placeholder="angebote" value="nach-hilfe" readonly><button id="kaufen" onclick="kaufen('200', 'nach-hilfe', '200200')">-200</button>
+    <div id="cart">
+      <img src="Cart-Image.heic" id="cartimage">
+    </div>
+  </div>
+  <input type="password" id="passwort" placeholder="passwort eingeben">
+  <button id="belohnung">belohnung</button>
+  <div class="deals">
+    <div id="deal1.">
+      <button id="deal1" onclick="dealf('100', 'keinen bildschirm teilen 1 mal')">keinen bildschirm teilen 1 mal:  <img src="point-Sing-Image.heic" id="sign"> -100</button>
+    </div>
+    <div id="deal2.">
+      <button id="deal2" onclick="dealf('200', 'keine hausaufgaben 1 mal')">keine hausaufgaben 1 mal:  <img src="point-Sing-Image.heic" id="sign"> -200</button>
+    </div>
+    <div id="alldeals.">
+      <button id="alldeals" onclick="dealf('50', 'für mich antworten 1 mal')">für mich antworten 1 mal:  <img src="point-Sing-Image.heic" id="sign2"> -50</button>
+    </div>
+    <div id="alldeals.">
+      <button id="alldeals" onclick="dealf('125', 'keine englisch hausaufgaben 1 mal')">keine englisch hausaufgaben 1 mal:  <img src="point-Sing-Image.heic" id="sign2"> -125</button>
+    </div>
+    <div id="alldeals.">
+      <button id="alldeals" onclick="dealf('222', 'nachhilfe 1 mal')">nachhilfe 1 mal:  <img src="point-Sing-Image.heic" id="sign2"> -222</button>
+    </div>
   </div>
   <script>
-    let password = document.getElementById('passwort');
+    let n1 = "0";
+    let n2 = "0";
+    let n3 = "0";
+    let n4 = "0";
+    let n5 = "0";
+    let cart = document.getElementById("cartimage");
+    let value = document.getElementById("value");
+    let yes = document.getElementById("okayornotokay");
     let belohnung = document.getElementById("belohnung");
-    let punkte = document.getElementById("punkte");
-    let punkzahl = document.getElementById("punkzahl");
-    let punkzahlab = document.getElementById("punkzahlab");
-    function openNewTab(url, num, id) {
-      document.getElementById(id).style.display = "none";
-      punkte.innerHTML = parseInt(punkte.innerHTML) + parseInt(num);
-      localStorage.setItem("punktewert", punkte.innerText);
-      window.open(url, '_blank');
-      setTimeout(function(){
-        document.getElementById(id).style.display = "block";
-      }, 300000)
-    }
-    function kaufen(punkteabzihen, anzeige, code){
-      if (parseInt(punkte.innerText) >= parseInt(punkteabzihen)){
-        punkte.innerHTML = parseInt(punkte.innerHTML) - parseInt(punkteabzihen);
-        belohnung.style.display = "block";
-        belohnung.innerHTML = anzeige + ". code: " + code;
-        localStorage.setItem("punktewert", punkte.innerText);
-      } else {
-        alert("du hast nicht genug punkte");
-      }
+    let password = document.getElementById("passwort");
+    let deals = document.querySelector(".deals");
+    let pointsid = document.getElementById("points");
+    if (isNaN(value.innerText)) {
+      value.innerText = "0";
+    } else if (parseInt(value.innerText) <= 0) {
+      yes.src = "Image2.heic";
+    } else {
+      yes.src = "Image1.heic";
     }
     document.addEventListener('DOMContentLoaded', (event) => {
       let wert = localStorage.getItem("punktewert");
-      punkte.innerHTML = wert;
+      let n1v = localStorage.getItem("n1");
+      let n2v = localStorage.getItem("n2");
+      let n3v = localStorage.getItem("n3");
+      let n4v = localStorage.getItem("n4");
+      let n5v = localStorage.getItem("n5");
+      if (n1v != null){
+        n1 = n1v;
+      }
+      if (n2v != null) {
+        n2 = n2v;
+      }
+      if (n3v != null) {
+        n3 = n3v;
+      }
+      if (n4v != null) {
+        n4 = n4v;
+      }
+      if (n5v != null) {
+        n5 = n5v;
+      }
+        
+      value.innerText = wert;
       // wert isNaN
+      if (isNaN(wert)){
+        value.innerText = 0;
+        yes.src = "Image2.heic";
+      }
       if (wert != null) {
         if (isNaN(wert)){
-          punkte.innerText = 0;
-        }else {
-          punkte.innerText = wert;
-        }
-        if (parseInt(wert) > 0) {
-          punkte.style.color = "green";
-        }
-        if (parseInt(wert) < 0) {
-          punkte.style.color = "red";
-        }
-        if (parseInt(wert) > 50 && parseInt(wert) < 80){
-          belohnung.style.display = "block";
-          belohnung.innerText = "keibe englisch hausaufgaben 1 mal";
-        }else if (parseInt(wert) > 80 && parseInt(wert) < 100){
-          belohnung.style.display = "block";
-          belohnung.innerText = "keine hausaufgaben 1 mal";
-        }else if (parseInt(wert) > 100 && parseInt(wert) < 150){
-          belohnung.style.display = "block";
-          belohnung.innerText = "für mich antworten";
-        }else if (parseInt(wert) > 150 && parseInt(wert) < 200) {
-          belohnung.style.display = "block";
-          belohnung.innerText = "kein bildscirm teilen 1 mal";
-        }else if (parseInt(wert) > 200) {
-          belohnung.style.display = "block";
-          belohnung.innerText = "nach-hilfe 1 mal";
-        }else {
-          belohnung.innerText = "keine belohnung";
-          belohnung.style.display = "none";
+          value.innerText = 0;
+          yes.src = "Image2.heic";
+        } else if (wert == "") {
+          value.innerText = 0;
+          yes.src = "Image2.heic";
+        } else if (parseInt(value.innerText) <= 0) {
+          yes.src = "Image2.heic";
+        } else {
+          value.innerText = wert;
+          if (parseInt(value.innerText) <= 0) {
+            yes.src = "Image2.heic";
+          } else {
+            yes.src = "Image1.heic";
+          }
         }
       }
     });
-
-    // Event-Listener für das Absenden des Formulars
-    punkzahl.addEventListener('submit', (event) => {
+    cart.addEventListener('click', (event) => {
       event.preventDefault();
-
-      // Den Wert des Formularelements punkzahl abrufen und zu den vorhandenen Punkten hinzufügen
-      let punkzahlWert = parseInt(punkzahl.value);
-      punkte.innerText = parseInt(punkte.innerText) + punkzahlWert;
-      if (parseInt(punkte.innerText) > 0) {
-        punkte.style.color = "green";
-      }
-      if (parseInt(punkte.innerText) < 0) {
-        punkte.style.color = "red";
-      }
-      if (parseInt(punkte.innerText) > 50 && parseInt(punkte.innerText) < 80){
-        belohnung.style.display = "block";
-        belohnung.innerText = "keibe englisch hausaufgaben 1 mal";
-      }else if (parseInt(punkte.innerText) > 80 && parseInt(punkte.innerText) < 100){
-        belohnung.style.display = "block";
-        belohnung.innerText = "keine hausaufgaben 1 mal";
-      }else if (parseInt(punkte.innerText) > 100 && parseInt(punkte.innerText) < 150){
-        belohnung.style.display = "block";
-        belohnung.innerText = "für mich antworten";
-      }else if (parseInt(punkte.innerText) > 150 && parseInt(punkte.innerText) < 200) {
-        belohnung.style.display = "block";
-        belohnung.innerText = "kein bildscirm teilen 1 mal";
-      }else if (parseInt(punkte.innerText) > 200) {
-        belohnung.style.display = "block";
-        belohnung.innerText = "nach-hilfe 1 mal";
+      cart.style.animation = "none";
+      void cart.offsetWidth;
+      cart.style.animation = "rotate 1s linear";
+      if (deals.style.display == "none"){
+        deals.style.display = "block";
+        deals.style.animation = "none";
+        void deals.offsetWidth;
+        deals.style.animation = "fadeIn 1s ease-in";
       }else {
-        belohnung.innerText = "keine belohnung";
-        belohnung.style.display = "none";
+        deals.style.display = "block";
+        deals.style.animation = "none";
+        void deals.offsetWidth;
+        deals.style.animation = "fadeout 1s ease-out";
+        setTimeout(() => {
+          deals.style.display = "none";
+        }, 1000);
       }
-      // Den Inhalt des Formularfelds punkzahl leeren
-      localStorage.setItem("punktewert", punkte.innerText);
-      punkzahl.value = "";
     });
 
-    // Event-Listener für das Keydown-Ereignis auf dem Formularfeld
-    punkzahl.addEventListener('keydown', (event) => {
-      // Überprüfen, ob die gedrückte Taste die Eingabetaste ist
-      if (event.key === 'Enter') {
-        // Das Formular manuell einreichen
-        punkzahl.dispatchEvent(new Event('submit'));
+    function dealf(points, text, code) {
+      if (isNaN(value.innerText)) {
+        value.innerText = "0";
+        localStorage.setItem("punktewert", value.innerText);
+      } else if (parseInt(value.innerText) >= parseInt(points)) {
+        value.innerText = parseInt(value.innerText) - parseInt(points);
+        pointsid.style.animation = "none";
+        void pointsid.offsetWidth;
+        pointsid.style.animation = "shake 0.5s linear";
+        belohnung.innerText = text + ". Code:" + points + points + points;
+        localStorage.setItem("punktewert", value.innerText);
+      } else {
+        value.innerText = "0";
+        localStorage.setItem("punktewert", value.innerText);
       }
-    });
-    punkzahlab.addEventListener('submit', (event) => {
-      event.preventDefault();
-
-      // Den Wert des Formularelements punkzahl abrufen und zu den vorhandenen Punkten hinzufügen
-      let punkzahlWert = parseInt(punkzahlab.value);
-      punkte.innerText = parseInt(punkte.innerText) - punkzahlWert;
-      // Den Inhalt des Formularfelds punkzahl leeren
-      if (parseInt(punkte.innerText) > 0) {
-        punkte.style.color = "green";
+      if (isNaN(value.innerText)) {
+        value.innerText = "0";
+        localStorage.setItem("punktewert", value.innerText);
+      } else if (parseInt(value.innerText) <= 0) {
+        yes.src = "Image2.heic";
+      } else {
+        yes.src = "Image1.heic";
       }
-      if (parseInt(punkte.innerText) < 0) {
-        punkte.style.color = "red";
-      }
-      if (parseInt(punkte.innerText) > 50 && parseInt(punkte.innerText) < 80){
-        belohnung.style.display = "block";
-        belohnung.innerText = "keibe englisch hausaufgaben 1 mal";
-      }else if (parseInt(punkte.innerText) > 80 && parseInt(punkte.innerText) < 100){
-        belohnung.style.display = "block";
-        belohnung.innerText = "keine hausaufgaben 1 mal";
-      }else if (parseInt(punkte.innerText) > 100 && parseInt(punkte.innerText) < 150){
-        belohnung.style.display = "block";
-        belohnung.innerText = "für mich antworten";
-      }else if (parseInt(punkte.innerText) > 150 && parseInt(punkte.innerText) < 200) {
-        belohnung.style.display = "block";
-        belohnung.innerText = "kein bildscirm teilen 1 mal";
-      }else if (parseInt(punkte.innerText) > 200) {
-        belohnung.style.display = "block";
-        belohnung.innerText = "nach-hilfe 1 mal";
-      }else {
-        belohnung.innerText = "keine belohnung";
-        belohnung.style.display = "none";
-      }
-      localStorage.setItem("punktewert", punkte.innerText);
-      punkzahlab.value = "";
-    });
-
-    // Event-Listener für das Keydown-Ereignis auf dem Formularfeld
-    punkzahlab.addEventListener('keydown', (event) => {
-      // Überprüfen, ob die gedrückte Taste die Eingabetaste ist
-      if (event.key === 'Enter') {
-        // Das Formular manuell einreichen
-        punkzahlab.dispatchEvent(new Event('submit'));
-      }
-    });
+    }
+    // enter event
     password.addEventListener('submit', (event) => {
-      event.preventDefault();
-      let passwordvalue = password.value;
-      if (passwordvalue == "picsnapp") {
-        punkzahl.style.display = "block";
-        punkzahlab.style.display = "block";
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "theresia") {
-        punkte.innerText = parseInt(punkte.innerText) + 2;
-        belohnung.style.display = "block";
-        belohnung.innerText = "theresia (code) ist nur 2 punkte wert";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "maxi") {
-        punkte.innerText = parseInt(punkte.innerText) + 7;
-        belohnung.style.display = "block";
-        belohnung.innerText = "wow, du hast maxi geschrieben 😱";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "lego") {
-        punkte.innerText = parseInt(punkte.innerText) + 3;
-        belohnung.style.display = "block";
-        belohnung.innerText = "gut gemacht";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "programmieren") {
-        punkte.innerText = parseInt(punkte.innerText) + 4;
-        belohnung.style.display = "block";
-        belohnung.innerText = "du scheinst mich zu kennen";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "sophiaL") {
-        punkte.innerText = parseInt(punkte.innerText) + 8;
-        belohnung.style.display = "block";
-        belohnung.innerText = "das ist der beste code";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "coolewebseite") {
-        punkte.innerText = parseInt(punkte.innerText) + 4;
-        belohnung.style.display = "block";
-        belohnung.innerText = "danke";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "cool") {
-        punkte.innerText = parseInt(punkte.innerText) + 1;
-        belohnung.style.display = "block";
-        belohnung.innerText = "+ 1 punkt für dich";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "micheleistnett") {
-        punkte.innerText = parseInt(punkte.innerText) + 2;
-        belohnung.style.display = "block";
-        belohnung.innerText = "ja, michele ist nett";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "202020") {
-        punkte.innerText = parseInt(punkte.innerText) + 1;
-        belohnung.style.display = "block";
-        belohnung.innerText = "danke, wie findest du meine webseiten?";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "selenaL") {
-        punkte.innerText = parseInt(punkte.innerText) + 3;
-        belohnung.style.display = "block";
-        belohnung.innerText = "gut, dafür hast du + 3";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "leoOBD") {
-        punkte.innerText = parseInt(punkte.innerText) + 3;
-        belohnung.style.display = "block";
-        belohnung.innerText = "du scheinst mich zu kennen";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "leo") {
-        punkte.innerText = parseInt(punkte.innerText) + 2;
-        belohnung.style.display = "block";
-        belohnung.innerText = "du scheinst mich zu kennen";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "dubistwitzig") {
-        punkte.innerText = parseInt(punkte.innerText) + 10;
-        belohnung.style.display = "block";
-        belohnung.innerText = "ja, das stimmt";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "dubisttoll") {
-        punkte.innerText = parseInt(punkte.innerText) + 10;
-        belohnung.style.display = "block";
-        belohnung.innerText = "ja, das stimmt wirklich";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "dubistsuper") {
-        punkte.innerText = parseInt(punkte.innerText) + 10;
-        belohnung.style.display = "block";
-        belohnung.innerText = "ja, das stimmt echt";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "englisch") {
-        punkte.innerText = parseInt(punkte.innerText) + 1;
-        belohnung.style.display = "block";
-        belohnung.innerText = "dir fellt ja nichts ein";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "dubistdiebesteperson") {
-        punkte.innerText = parseInt(punkte.innerText) + 25;
-        belohnung.style.display = "block";
-        belohnung.innerText = "wow, das ich das mal hören darf";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "lol") {
-        punkte.innerText = parseInt(punkte.innerText) + 1;
-        belohnung.style.display = "block";
-        belohnung.innerText = "was soll so witzig sein?";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "mathe") {
-        punkte.innerText = parseInt(punkte.innerText) + 7;
-        belohnung.style.display = "block";
-        belohnung.innerText = "hier hast du 2 + 5 punkt";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "ann-kathrin") {
-        punkte.innerText = parseInt(punkte.innerText) + 10;
-        belohnung.style.display = "block";
-        belohnung.innerText = "den loser sprichst du an?";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "maximilian") {
-        punkte.innerText = parseInt(punkte.innerText) - 3;
-        belohnung.style.display = "block";
-        belohnung.innerText = "es heißt maxi";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "mayo") {
-        punkte.innerText = parseInt(punkte.innerText) + 3;
-        belohnung.style.display = "block";
-        belohnung.innerText = "lol";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "ulrike") {
-        punkte.innerText = parseInt(punkte.innerText) + 5;
-        belohnung.style.display = "block";
-        belohnung.innerText = "hier hast du 3 + 2 punkte";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "505050") {
-        punkte.innerText = parseInt(punkte.innerText) + 1;
-        belohnung.style.display = "block";
-        belohnung.innerText = "danke, wie findest du meine webseiten?";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "707070") {
-        punkte.innerText = parseInt(punkte.innerText) + 1;
-        belohnung.style.display = "block";
-        belohnung.innerText = "danke, wie findest du meine webseiten?";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "ailury") {
-        punkte.innerText = parseInt(punkte.innerText) + 10;
-        belohnung.style.display = "block";
-        belohnung.innerText = "ja, gut";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "draw") {
-        punkte.innerText = parseInt(punkte.innerText) + 4;
-        belohnung.style.display = "block";
-        belohnung.innerText = "gut geraten";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "naturwissenschaft") {
-        punkte.innerText = parseInt(punkte.innerText) + 5;
-        belohnung.style.display = "block";
-        belohnung.innerText = "gut gemacht";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "mathematik") {
-        punkte.innerText = parseInt(punkte.innerText) + 5;
-        belohnung.style.display = "block";
-        belohnung.innerText = "yay, mathe. hier hast du 5 punkte";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "esheißtmaxi") {
-        punkte.innerText = parseInt(punkte.innerText) + 15;
-        belohnung.style.display = "block";
-        belohnung.innerText = "ja genau! hier hast du 15 punkte";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "bildschirm") {
-        punkte.innerText = parseInt(punkte.innerText) + 1;
-        belohnung.style.display = "block";
-        belohnung.innerText = "bildschirm ist ein guter code";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "bildschirmteilen") {
-        punkte.innerText = parseInt(punkte.innerText) + 10;
-        belohnung.style.display = "block";
-        belohnung.innerText = "du bist 10 punkte näher an keinen bildschirm teilen!";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "schreiben") {
-        punkte.innerText = parseInt(punkte.innerText) + 5;
-        belohnung.style.display = "block";
-        belohnung.innerText = "du bist kreativ";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "langehaare") {
-        punkte.innerText = parseInt(punkte.innerText) + 1;
-        belohnung.style.display = "block";
-        belohnung.innerText = "danke, wie findest du meine webseiten?";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else if (passwordvalue == "langsam") {
-        punkte.innerText = parseInt(punkte.innerText) + 2;
-        belohnung.style.display = "block";
-        belohnung.innerText = "was ist langsam?";
-        localStorage.setItem("punktewert", punkte.innerText);
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 30000);
-      }else {
-        punkzahl.style.display = "none";
-        punkzahlab.style.display = "none";
-        password.style.display = "none";
-        setTimeout(function() {
-          password.style.display = "block";
-        }, 3000);
+      let passwort = password.value;
+      if (parseInt(value.innerText) <= 0) {
+        yes.src = "Image2.heic";
+      }
+      if (passwort == "punkte") {
+        pluspoints('1', '+1 punkte wurden hinzugefügt');
+      } else if (passwort == "maxi") {
+        pluspoints('3', 'wow, du hast den code nichmal benutzt');
+      }else if (passwort == "passwort") {
+        pluspoints('2', '"passwort" ist echt ein klassisches passwort (+2)');
+      }else if (passwort == "esheißtmaxi") {
+        pluspoints('5', 'ja, das stimmt, hier hast du +5 punkte');
+      }else if (passwort == "superwebseiten") {
+        pluspoints('5', 'danke, hier sind + 5 punkte');
+      }else if (passwort == "1punkt") {
+        pluspoints('1', 'okay, hier hast du einen punkt');
+      }else if (passwort == "5punktebitte") {
+        pluspoints('5', 'okay, wenn du schon so nett fragst');
+      }else if (passwort == "ichliebedich") {
+        pluspoints('30', 'das ich das mal hören darf lol');
+      }else if (passwort == "danke") {
+        pluspoints('3', 'kein problem?!');
+      }else if (passwort == "coolewebseite") {
+        pluspoints('10', 'danke');
+      }else if (passwort == "hallo") {
+        pluspoints('1', 'hallo');
+      }else if (passwort == "maximiliandegroot") {
+        pluspoints('5', 'kannst du meinen ganzen namen?');
+      }else if (passwort == "hi") {
+        pluspoints('1', 'übersetze: "tschüss" für extra 5 punkte');
+      }else if (passwort == "tschüss") {
+        pluspoints('1', 'ich hoffe du hattest viel spass auf der webseite');
+      }else if (passwort == "cool") {
+        pluspoints('2', 'was ist cool?');
+      }else if (passwort == "gut") {
+        pluspoints('1', 'was ist gut?');
+      }else if (passwort == "theresia") {
+        pluspoints('1', '+1');
+      }else if (passwort == "ailury") {
+        pluspoints('5', 'du hast dir den namen gemerkt?');
+      }else if (passwort == "p|") {
+        pluspoints('1', 'so ähnlich lol');
+      }else if (passwort == "grün") {
+        pluspoints('1', 'ja, eine schlüssel farbe für diese webseite');
+      }else if (passwort == "einkaufswagen") {
+        pluspoints('5', 'echt langes wort! (gut)');
+      }else if (passwort == "kbt") {
+        pluspoints('1', '"kbt" steht in diesem falle für: "keinen bildschirm teilen"');
+      }else if (passwort == "lol") {
+        pluspoints('1', '"lol" was?');
+      }else if (passwort == "cooleweb") {
+        pluspoints('2', 'danke');
+      }else if (passwort == "picsnapp") {
+        pluspoints('2', 'wie findest du die picsnapp webseite (von mir)?');
+      }else if (passwort == "ulrike") {
+        pluspoints('2', 'du hast 1 + 1 punkte mehr als vorher');
+      }else if (passwort == "ichhabe10punkte") {
+        pluspoints('10', 'cool, hier sind weitere 10 punkte');
+      }else if (passwort == "bye") {
+        pluspoints('3', 'gut übersetzt, hier hast du +3 punkte');
       }
     });
     password.addEventListener('keydown', (event) => {
-      // Überprüfen, ob die gedrückte Taste die Eingabetaste ist
       if (event.key === 'Enter') {
-        // Das Formular manuell einreichen
         password.dispatchEvent(new Event('submit'));
       }
     });
+    function pluspoints(pointvalue, text2){
+      nulltext = localStorage.getItem(text2);
+      if (nulltext == null){
+        if (nulltext == text2){
+          value.innerText = parseInt(value.innerText) + 0;
+          localStorage.setItem("punktewert", value.innerText);
+          belohnung.innerText = text2;
+        }else {
+          value.innerText = parseInt(value.innerText) + parseInt(pointvalue)
+          localStorage.setItem("punktewert", value.innerText);
+          belohnung.innerText = text2;
+          if (n1 == "0") {
+            n1 = text2;
+            localStorage.setItem(text2, text2);
+            localStorage.setItem("n1", text2);
+          }else if (n2 == "0") {
+            n2 = text2;
+            localStorage.setItem(text2, text2);
+            localStorage.setItem("n2", text2);
+          }else if (n3 == "0") {
+            n3 = text2;
+            localStorage.setItem(text2, text2);
+            localStorage.setItem("n3", text2);
+          }else if (n4 == "0") {
+            n4 = text2;
+            localStorage.setItem(text2, text2);
+            localStorage.setItem("n4", text2);
+          }else if (n5 == "0") {
+            n5 = text2;
+            localStorage.setItem(text2, text2);
+            localStorage.setItem("n5", text2);
+          }else {
+            localStorage.removeItem(n1);
+            localStorage.removeItem(n2);
+            localStorage.removeItem(n3);
+            localStorage.removeItem(n4);
+            localStorage.removeItem(n5);
+            n1 = text2;
+            localStorage.setItem(text2, text2);
+            n2 = "0";
+            n3 = "0";
+            n4 = "0";
+            n5 = "0";
+            localStorage.setItem("n1", text2);
+            localStorage.setItem("n2", "0");
+            localStorage.setItem("n3", "0");
+            localStorage.setItem("n4", "0");
+            localStorage.setItem("n5", "0");
+          }
+          
+        }
+      }
+      
+    }
+    
   </script>
 </body>
 
